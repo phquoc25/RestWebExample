@@ -1,4 +1,4 @@
-package com.qph.entity;
+package com.qph.entity.vehicle;
 
 import javax.persistence.Entity;
 

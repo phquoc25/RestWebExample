@@ -8,35 +8,39 @@ public class Address {
 	
 	@Column(name="STREET_NAME")
 	private String street;
+	@Column(name="DISTRICT_NAME")
+	private String district;
 	@Column(name="CITY_NAME")
 	private String city;
-	@Column(name="STATE_NAME")
-	private String state;
-	@Column(name="PIN_CODE")
-	private String pincode;
+	
+	public Address() {
+	}
+	
+	public Address(String street, String district, String city) {
+		this.street = street;
+		this.district = district;
+		this.city = city;
+	}
+	
 	public String getStreet() {
 		return street;
 	}
 	public void setStreet(String street) {
 		this.street = street;
 	}
+	public String getDistrict() {
+		return district;
+	}
+
+	public void setDistrict(String district) {
+		this.district = district;
+	}
+
 	public String getCity() {
 		return city;
 	}
 	public void setCity(String cty) {
 		this.city = cty;
-	}
-	public String getState() {
-		return state;
-	}
-	public void setState(String state) {
-		this.state = state;
-	}
-	public String getPincode() {
-		return pincode;
-	}
-	public void setPincode(String pincode) {
-		this.pincode = pincode;
 	}
 	
 }

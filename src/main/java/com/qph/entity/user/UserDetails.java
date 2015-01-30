@@ -1,4 +1,4 @@
-package com.qph.entity;
+package com.qph.entity.user;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -6,6 +6,7 @@ import java.util.Date;
 
 import javax.persistence.Cacheable;
 import javax.persistence.CascadeType;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,6 +21,9 @@ import javax.persistence.TemporalType;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
+import com.qph.entity.Address;
+import com.qph.entity.vehicle.Vehicle;
+
 @Entity
 @Cacheable
 @Cache(usage = CacheConcurrencyStrategy.READ_ONLY)
@@ -33,6 +37,8 @@ public class UserDetails {
 	private String userName;
 	@Temporal(TemporalType.DATE)
 	private Date joinedDate;
+	@Embedded
+	private Address address;
 	@OneToMany(cascade = CascadeType.ALL)
 	private Collection<Vehicle> vehicles = new ArrayList<Vehicle>();
 
@@ -77,6 +83,14 @@ public class UserDetails {
 
 	public void setVehicles(Collection<Vehicle> vehicles) {
 		this.vehicles = vehicles;
+	}
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 
 }

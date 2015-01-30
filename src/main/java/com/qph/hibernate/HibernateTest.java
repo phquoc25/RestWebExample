@@ -11,9 +11,9 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.core.io.FileSystemResource;
 
-import com.qph.entity.FourWheeler;
-import com.qph.entity.TwoWheeler;
-import com.qph.entity.UserDetails;
+import com.qph.entity.user.UserDetails;
+import com.qph.entity.vehicle.FourWheeler;
+import com.qph.entity.vehicle.TwoWheeler;
 import com.qph.util.HibernateUtil;
 
 public class HibernateTest {
