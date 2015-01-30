@@ -9,7 +9,7 @@ import javax.persistence.InheritanceType;
 
 @Entity
 @Inheritance(strategy=InheritanceType.JOINED)
-public class Vehicle {
+public abstract class Vehicle {
 	@Id 
 	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	private int vehicleId;
@@ -30,4 +30,6 @@ public class Vehicle {
 	public void setVehicleId(int vehicleId) {
 		this.vehicleId = vehicleId;
 	}
+	
+	public abstract void run();
 }

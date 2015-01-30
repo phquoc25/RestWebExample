@@ -14,5 +14,11 @@ public class FourWheeler extends Vehicle{
 	public void setSteeringWheel(String steeringWheel) {
 		SteeringWheel = steeringWheel;
 	}
+
+	@Override
+	public void run() {
+		System.out.println("Run with 4 wheels");
+		
+	}
 	
 }

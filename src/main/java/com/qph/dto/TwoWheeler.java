@@ -14,6 +14,12 @@ public class TwoWheeler extends Vehicle{
 	public void setSteeringHandle(String steeringHandle) {
 		SteeringHandle = steeringHandle;
 	}
+
+	@Override
+	public void run() {
+		System.out.println("Run with 2 wheels");
+		
+	}
 	
 	
 }
