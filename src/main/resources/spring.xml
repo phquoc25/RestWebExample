@@ -3,22 +3,21 @@
 <beans>
 	<bean id="vehicle" class="com.qph.entity..vehicle.Vehicle"
 		abstract="true">
-
 	</bean>
-	<bean id="twowheeler" class="com.qph.entity.vehicle.TwoWheeler">
+	<bean id="twowheeler" class="com.qph.entity.vehicle.TwoWheeler" scope="prototype">
 		<constructor-arg value="Steering Handle" />
 		<constructor-arg value="20" />
 	</bean>
 	<bean id="fourwheeler" class="com.qph.entity.vehicle.FourWheeler">
 		<property name="SteeringWheel" value="Steering wheel"></property>
 	</bean>
-	<bean id="address" class="com.qph.entity.Address">
-		<constructor-arg value="Tran Huy Lieu" />
-		<constructor-arg value="Phu Nhuan" />
-		<constructor-arg value="Ho Chi Minh" />
+	<bean id="userdetails" class="com.qph.entity.user.UserDetails" scope="prototype">
+		<property name="address">
+			<bean class="com.qph.entity.Address">
+				<constructor-arg value="Tran Huy Lieu" />
+				<constructor-arg value="Phu Nhuan" />
+				<constructor-arg value="Ho Chi Minh" />
+			</bean>
+		</property>
 	</bean>
-	<bean id="userdetails" class="com.qph.entity.user.UserDetails">
-		<property name="address" ref="address"></property>
-	</bean>
-
 </beans>

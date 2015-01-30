@@ -33,7 +33,12 @@ public class HibernateTest {
 			UserDetails user = (UserDetails) applicationContext.getBean("userdetails");
 			user.getVehicles().add(twoWheeler);
 			
+			TwoWheeler twoWheeler2 = (TwoWheeler) applicationContext.getBean("twowheeler");
+			UserDetails user2 = (UserDetails) applicationContext.getBean("userdetails");
+			user2.getVehicles().add(twoWheeler2);
+			
 			session.save(user);
+			session.save(user2);
 			session.getTransaction().commit();
 			System.out.println("Data is committed successfuly");
 		} catch (Exception e) {
