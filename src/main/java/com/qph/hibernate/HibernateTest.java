@@ -27,14 +27,11 @@ public class HibernateTest {
 		try {
 			session.beginTransaction();
 
-			FourWheeler fourWheeler = (FourWheeler) applicationContext.getBean("fourwheeler");
-			fourWheeler.setName("Bike 2");
-			fourWheeler.setSteeringWheel("steeringWheel of four wheeler");
+			TwoWheeler twoWheeler = (TwoWheeler) applicationContext.getBean("twowheeler");
 
-			UserDetails user = (UserDetails)applicationContext.getBean("userdetails");
-			user.setUserName("Chieu Luu");
-			user.setDescription("Secirity guy.");
-			user.getVehicles().add(fourWheeler);
+			//UserDetails user = (UserDetails) session.get(UserDetails.class, 10);
+			UserDetails user = (UserDetails) applicationContext.getBean("userdetails");
+			user.getVehicles().add(twoWheeler);
 			
 			session.save(user);
 			session.getTransaction().commit();
