@@ -54,10 +54,10 @@
         <property name="hbm2ddl.auto">update</property>
 
         <!-- Names the annotated entity class -->
-        <mapping class="com.qph.dto.UserDetails"/>
-        <mapping class="com.qph.dto.Vehicle"/>
-        <mapping class="com.qph.dto.TwoWheeler"/>
-        <mapping class="com.qph.dto.FourWheeler"/>
+        <mapping class="com.qph.entity.UserDetails"/>
+        <mapping class="com.qph.entity.Vehicle"/>
+        <mapping class="com.qph.entity.TwoWheeler"/>
+        <mapping class="com.qph.entity.FourWheeler"/>
 
     </session-factory>
 

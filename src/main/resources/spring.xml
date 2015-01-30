@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
 <beans>
-	<bean id="twowheeler" class="com.qph.dto.TwoWheeler"></bean>
-	<bean id="userdetails" class="com.qph.dto.UserDetails"></bean>
+	<bean id="twowheeler" class="com.qph.entity.TwoWheeler">
+		<property name="SteeringHandle" value="Steering Handle"></property>
+	</bean>
+	<bean id="userdetails" class="com.qph.entity.UserDetails"></bean>
+	<bean id="fourwheeler" class="com.qph.entity.FourWheeler">
+		<property name="SteeringWheel" value="Steering wheel"></property>
+	</bean>
 </beans>
