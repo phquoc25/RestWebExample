@@ -7,4 +7,5 @@
 	
 	<!-- Bean declaration  -->
 	<import resource="../beans/UserDetails.xml"/>
+	<import resource="../beans/OtherBeans.xml"/>
 </beans>
