@@ -18,7 +18,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import org.springframework.beans.factory.annotation.Required;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 @Entity
 @NamedQuery(name = "UserDetails:byId", query = "from UserDetails where userId=?")
@@ -90,7 +91,8 @@ public class UserDetails implements Serializable{
 		return address;
 	}
 	
-	@Required
+	@Autowired
+	@Qualifier(value="userDetailsRelated")
 	public void setAddress(Address address) {
 		this.address = address;
 	}
