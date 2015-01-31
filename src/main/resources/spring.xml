@@ -4,14 +4,14 @@
 	<bean id="vehicle" class="com.qph.entity..vehicle.Vehicle"
 		abstract="true">
 	</bean>
-	<bean id="twowheeler" class="com.qph.entity.vehicle.TwoWheeler" scope="prototype">
+	<bean id="twowheeler" class="com.qph.model.TwoWheeler" scope="prototype">
 		<constructor-arg value="Steering Handle" />
 		<constructor-arg value="20" />
 	</bean>
-	<bean id="fourwheeler" class="com.qph.entity.vehicle.FourWheeler">
+	<bean id="fourwheeler" class="com.qph.model.FourWheeler">
 		<property name="SteeringWheel" value="Steering wheel"></property>
 	</bean>
-	<bean id="userdetails" class="com.qph.entity.user.UserDetails" scope="prototype">
+	<bean id="userdetails" class="com.qph.model.UserDetails" scope="prototype">
 		<property name="address">
 			<bean class="com.qph.entity.Address">
 				<constructor-arg value="Tran Huy Lieu" />

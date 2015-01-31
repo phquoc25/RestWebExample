@@ -1,4 +1,4 @@
-package com.qph.entity;
+package com.qph.model;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;

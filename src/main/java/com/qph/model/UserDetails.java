@@ -1,10 +1,10 @@
-package com.qph.entity.user;
+package com.qph.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 
-import javax.persistence.Cacheable;
 import javax.persistence.CascadeType;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
@@ -18,19 +18,18 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
-
-import com.qph.entity.Address;
-import com.qph.entity.vehicle.Vehicle;
-
 @Entity
-@Cacheable
-@Cache(usage = CacheConcurrencyStrategy.READ_ONLY)
 @NamedQuery(name = "UserDetails:byId", query = "from UserDetails where userId=?")
 @org.hibernate.annotations.Entity(selectBeforeUpdate = true)
 @Table(name = "USER_DETAILS")
-public class UserDetails {
+public class UserDetails implements Serializable{
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8919394224899768583L;
+	
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private int userId;

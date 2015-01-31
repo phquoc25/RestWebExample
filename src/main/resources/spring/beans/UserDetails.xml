@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans>
+	<!-- UserDetails business object -->
+	<bean id="userDetailsBo" class="com.qph.userdetails.bo.impl.UserDetailsBoImpl">
+		<property name="userDetailsDao" ref="userDetailsDao"></property>
+	</bean>
+
+	<!-- UserDetails Data access object -->
+	<bean id="userDetailsDao" class="com.qph.dao.impl.UserDetailsDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+</beans>
