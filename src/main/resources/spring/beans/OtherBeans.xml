@@ -3,4 +3,5 @@
 <beans>
 	<bean class="com.qph.common.DisplayNameBeanPostProcessor"/>
 	<bean class="com.qph.common.MyBeanFactoryPP"/>
+	<bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor"/>
 </beans>

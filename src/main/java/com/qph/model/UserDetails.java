@@ -18,6 +18,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.springframework.beans.factory.annotation.Required;
+
 @Entity
 @NamedQuery(name = "UserDetails:byId", query = "from UserDetails where userId=?")
 @org.hibernate.annotations.Entity(selectBeforeUpdate = true)
@@ -87,7 +89,8 @@ public class UserDetails implements Serializable{
 	public Address getAddress() {
 		return address;
 	}
-
+	
+	@Required
 	public void setAddress(Address address) {
 		this.address = address;
 	}

@@ -10,4 +10,21 @@
 	<bean id="userDetailsDao" class="com.qph.dao.impl.UserDetailsDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
+
+	<bean id="vehicle" class="com.qph.entity..vehicle.Vehicle"
+		abstract="true">
+	</bean>
+
+	<bean id="twoWheeler" class="com.qph.model.TwoWheeler" scope="prototype">
+		<constructor-arg value="Steering Handle" />
+		<constructor-arg value="20" />
+	</bean>
+
+	<bean id="fourWheeler" class="com.qph.model.FourWheeler">
+		<property name="SteeringWheel" value="Steering wheel"></property>
+	</bean>
+
+	<bean id="userDetails" class="com.qph.model.UserDetails" scope="prototype">
+		
+	</bean>
 </beans>

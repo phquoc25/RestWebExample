@@ -12,8 +12,8 @@ public class App {
 		applicationContext.registerShutdownHook();
 		UserDetailsBo userDetailsBo = (UserDetailsBo) applicationContext.getBean("userDetailsBo");
 		
-		UserDetails user = new UserDetails();
-		user.setUserName("Quoc PHAN");
+		UserDetails user = (UserDetails) applicationContext.getBean("userDetails");
+		System.out.println(user.getAddress().getCity());
 		userDetailsBo.save(user);
 		
 	}
