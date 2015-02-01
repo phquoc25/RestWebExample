@@ -6,16 +6,6 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
 http://www.springframework.org/schema/context
 http://www.springframework.org/schema/context/spring-context-2.5.xsd">
 
-	<!-- UserDetails business object -->
-	<bean id="userDetailsBo" class="com.qph.userdetails.bo.impl.UserDetailsBoImpl">
-		<property name="userDetailsDao" ref="userDetailsDao"></property>
-	</bean>
-
-	<!-- UserDetails Data access object -->
-	<bean id="userDetailsDao" class="com.qph.dao.impl.UserDetailsDaoImpl">
-		<property name="sessionFactory" ref="sessionFactory"></property>
-	</bean>
-
 	<bean id="vehicle" class="com.qph.entity..vehicle.Vehicle"
 		abstract="true">
 	</bean>

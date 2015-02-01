@@ -3,11 +3,14 @@ package com.qph.dao.impl;
 import java.util.List;
 
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+import org.springframework.stereotype.Repository;
 
 import com.qph.dao.UserDetailsDao;
 import com.qph.model.UserDetails;
+import com.qph.util.CustomHibernateDaoSupport;
 
-public class UserDetailsDaoImpl extends HibernateDaoSupport implements UserDetailsDao {
+@Repository("userDetailsDao")
+public class UserDetailsDaoImpl extends CustomHibernateDaoSupport implements UserDetailsDao {
 
 	public void save(UserDetails userDetails) {
 		getHibernateTemplate().save(userDetails);

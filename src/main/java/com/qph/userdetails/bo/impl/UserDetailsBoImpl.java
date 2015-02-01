@@ -2,13 +2,17 @@ package com.qph.userdetails.bo.impl;
 
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.qph.dao.UserDetailsDao;
 import com.qph.model.UserDetails;
 import com.qph.userdetails.bo.UserDetailsBo;
 
+@Service("userDetailsBo")
 public class UserDetailsBoImpl implements UserDetailsBo, InitializingBean, DisposableBean{
 	
+	@Autowired
 	private UserDetailsDao userDetailsDao;
 	
 	public void save(UserDetails userDetails) {
