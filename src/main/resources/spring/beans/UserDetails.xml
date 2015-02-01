@@ -18,11 +18,7 @@ http://www.springframework.org/schema/context/spring-context-2.5.xsd">
 	<bean id="fourWheeler" class="com.qph.model.FourWheeler">
 		<property name="SteeringWheel" value="Steering wheel"></property>
 	</bean>
-
-	<bean id="userDetails" class="com.qph.model.UserDetails" scope="prototype">
-
-	</bean>
-
+	
 	<bean id="address1" class="com.qph.model.Address">
 		<qualifier value="userDetailsRelated"/>
 		<constructor-arg value="Tran Huy Lieu" />

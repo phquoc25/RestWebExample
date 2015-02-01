@@ -13,8 +13,9 @@ public class App {
 		UserDetailsBo userDetailsBo = (UserDetailsBo) applicationContext.getBean("userDetailsBo");
 		
 		UserDetails user = (UserDetails) applicationContext.getBean("userDetails");
-		System.out.println(user.getAddress().getCity());
-		userDetailsBo.save(user);
+		user.showAddress();
+		//userDetailsBo.save(user);
+		
 		
 	}
 }
