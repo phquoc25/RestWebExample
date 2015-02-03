@@ -1,4 +1,4 @@
-package com.qph.services.impl;
+package com.qph.resources;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.qph.model.UserDetails;
-import com.qph.services.UserDetailsServices;
 import com.qph.userdetails.bo.UserDetailsBo;
 
 @Component

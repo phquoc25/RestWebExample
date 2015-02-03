@@ -1,4 +1,4 @@
-package com.qph.services;
+package com.qph.resources;
 
 import com.qph.model.UserDetails;
 

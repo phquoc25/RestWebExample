@@ -14,8 +14,6 @@ public class App {
 		
 		UserDetails user = (UserDetails) applicationContext.getBean("userDetails");
 		user.showAddress();
-		//userDetailsBo.save(user);
-		
-		
+		userDetailsBo.save(user);
 	}
 }
