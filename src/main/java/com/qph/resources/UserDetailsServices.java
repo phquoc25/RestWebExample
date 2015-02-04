@@ -1,10 +1,12 @@
 package com.qph.resources;
 
+import javax.ws.rs.core.Response;
+
 import com.qph.model.UserDetails;
 
 public interface UserDetailsServices {
-	public void save(UserDetails userDetails);
-	public void update(UserDetails userDetails);
-	public void delete(UserDetails userDetails);
+	public Response save(UserDetails userDetails);
+	public Response update(UserDetails userDetails);
+	public Response delete(UserDetails userDetails);
 	public UserDetails findById(String userName);
 }
