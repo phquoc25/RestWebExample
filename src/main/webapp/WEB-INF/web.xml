@@ -16,18 +16,22 @@
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
-	
+
 	<servlet>
 		<servlet-name>myServlet</servlet-name>
 		<servlet-class>com.sun.jersey.spi.spring.container.servlet.SpringServlet</servlet-class>
-		<init-param>
-			<param-name>com.sun.jersey.config.property.packages</param-name>
-			<param-value>com.qph</param-value>
-		</init-param>
+<!-- 		<init-param>
+			<param-name>javax.ws.rs.Application</param-name>
+			<param-value>com.qph.resources.MyApplication</param-value>
+		</init-param> -->
+	<init-param>
+		<param-name>com.sun.jersey.config.property.packages</param-name>
+		<param-value>com.qph.resources</param-value>
+	</init-param>
 	</servlet>
-	
-	 <servlet-mapping>
-        <servlet-name>myServlet</servlet-name>
-        <url-pattern>/api</url-pattern>
- </servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>myServlet</servlet-name>
+		<url-pattern>/rest/*</url-pattern>
+	</servlet-mapping>
 </web-app>

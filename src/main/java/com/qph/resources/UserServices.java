@@ -1,4 +1,4 @@
-package com.qph.services;
+package com.qph.resources;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;

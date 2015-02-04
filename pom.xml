@@ -13,7 +13,7 @@
 			<artifactId>jersey-server</artifactId>
 			<version>1.8</version>
 		</dependency>
-
+		
 		<!-- Jersey + Spring -->
 		<dependency>
 			<groupId>com.sun.jersey.contribs</groupId>
@@ -65,7 +65,7 @@
 			<artifactId>spring-context</artifactId>
 			<version>3.2.3.RELEASE</version>
 		</dependency>
-		
+
 		<!-- Spring framework web -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -102,10 +102,13 @@
 		</dependency>
 
 
+		<!-- <dependency> <groupId>com.h2database</groupId> <artifactId>h2</artifactId> 
+			<version>1.4.185</version> </dependency> -->
+
 		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-			<version>1.4.185</version>
+			<groupId>postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>9.1-901.jdbc4</version>
 		</dependency>
 
 		<dependency>

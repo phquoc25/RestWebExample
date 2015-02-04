@@ -1,6 +1,5 @@
-package com.qph.services.impl;
+package com.qph.resources;
 
-import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.core.Response;
 
@@ -8,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.qph.model.UserDetails;
-import com.qph.services.UserDetailsServices;
 import com.qph.userdetails.bo.UserDetailsBo;
 
 @Component
@@ -16,32 +14,28 @@ import com.qph.userdetails.bo.UserDetailsBo;
 public class UserDetailsServicesImpl implements UserDetailsServices{
 	
 	@Autowired
-	private UserDetailsBo userDetailsBo; 
-	
-	
-	public void save(UserDetails userDetails) {
-		
-	}
-	
-	@GET
-	@Path("/save")
-	public Response save1() {
-		return Response.status(200).entity("Save1 method called.").build();
+	private UserDetailsBo userDetailsBo;
+
+	public Response save(UserDetails userDetails) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
-	public void update(UserDetails userDetails) {
+	public Response update(UserDetails userDetails) {
 		// TODO Auto-generated method stub
-		
+		return null;
 	}
 
-	public void delete(UserDetails userDetails) {
+	public Response delete(UserDetails userDetails) {
 		// TODO Auto-generated method stub
-		
+		return null;
 	}
 
 	public UserDetails findById(String userName) {
 		// TODO Auto-generated method stub
 		return null;
-	}
+	} 
+	
+	
 
 }

@@ -43,7 +43,7 @@ public class UserDetails implements Serializable{
 	private MessageSource messageSource;
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int userId;
 	private String userName;
 	@Temporal(TemporalType.DATE)
