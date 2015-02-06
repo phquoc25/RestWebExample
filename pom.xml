@@ -13,7 +13,7 @@
 			<artifactId>jersey-server</artifactId>
 			<version>1.8</version>
 		</dependency>
-		
+
 		<!-- Jersey + Spring -->
 		<dependency>
 			<groupId>com.sun.jersey.contribs</groupId>
@@ -117,6 +117,24 @@
 			<version>3.12.0.GA</version>
 		</dependency>
 
+		<!-- JAX-WS for developing SOAP ws -->
+		<dependency>
+			<groupId>javax.xml.ws</groupId>
+			<artifactId>jaxws-api</artifactId>
+			<version>2.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.jws</groupId>
+			<artifactId>jsr181-api</artifactId>
+			<version>1.0-MR1</version>
+		</dependency>
+		<!-- com.sun.xml.ws.transport.http.servlet.WSServletContextListener -->
+		<dependency>
+			<groupId>com.sun.xml.ws</groupId>
+			<artifactId>jaxws-rt</artifactId>
+			<version>2.1</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<finalName>MyWebApp</finalName>
