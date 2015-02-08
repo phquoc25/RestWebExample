@@ -3,7 +3,7 @@
   xmlns="http://java.sun.com/xml/ns/jax-ws/ri/runtime"
   version="2.0">
   <endpoint
-      name="UserDetailsService"
-      implementation="com.qph.ws.UserDetailsAPIImpl"
+      name="Userdetails"
+      implementation="com.qph.ws.UserDetailsAPI"
       url-pattern="/userdetails"/>
 </endpoints>

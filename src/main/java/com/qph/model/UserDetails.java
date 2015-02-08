@@ -39,8 +39,8 @@ public class UserDetails implements Serializable{
 	 */
 	private static final long serialVersionUID = -8919394224899768583L;
 	@Autowired
-	@Transient
-	private MessageSource messageSource;
+	/*@Transient
+	private MessageSource messageSource;*/
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -127,18 +127,4 @@ public class UserDetails implements Serializable{
 		return builder.toString();
 	}
 	
-	public void showAddress() {
-		System.out.println(messageSource.getMessage("userDetails.address.show", null, "Default showing", null));
-		System.out.println(messageSource.getMessage("userDetails.address.detail", 
-											new Object[]{this.userName, address.getStreet(), address.getDistrict(), address.getCity()},
-											"Default address", null));
-	}
-
-	public MessageSource getMessageSource() {
-		return messageSource;
-	}
-
-	public void setMessageSource(MessageSource messageSource) {
-		this.messageSource = messageSource;
-	}
 }
