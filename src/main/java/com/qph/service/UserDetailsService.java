@@ -1,8 +1,8 @@
-package com.qph.userdetails.bo;
+package com.qph.service;
 
 import com.qph.model.UserDetails;
 
-public interface UserDetailsBo {
+public interface UserDetailsService {
 	
 	public void save(UserDetails userDetails);
 	public void update(UserDetails userDetails);

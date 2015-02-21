@@ -1,4 +1,4 @@
-package com.qph.userdetails.bo.impl;
+package com.qph.service;
 
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
@@ -6,12 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Service;
 
-import com.qph.dao.UserDetailsDao;
 import com.qph.model.UserDetails;
-import com.qph.userdetails.bo.UserDetailsBo;
+import com.qph.repository.UserDetailsDao;
 
 @Service("userDetailsBo")
-public class UserDetailsBoImpl implements UserDetailsBo, InitializingBean, DisposableBean{
+public class UserDetailsServiceImpl implements UserDetailsService, InitializingBean, DisposableBean{
 	
 	@Autowired
 	private MessageSource messageSource;
@@ -56,12 +55,12 @@ public class UserDetailsBoImpl implements UserDetailsBo, InitializingBean, Dispo
 	}
 
 	public void afterPropertiesSet() throws Exception {
-		System.out.println("UserDetailsBoImpl afterPropertiesSet get called.");
+		System.out.println("UserDetailsServiceImpl afterPropertiesSet get called.");
 		
 	}
 
 	public void destroy() throws Exception {
-		System.out.println("UserDetailsBoImpl destroy get called.");
-		System.out.println("UserDetailsBoImpl " + this.messageSource.getMessage("greeting", null, "Default message", null));
+		System.out.println("UserDetailsServiceImpl destroy get called.");
+		System.out.println("UserDetailsServiceImpl " + this.messageSource.getMessage("greeting", null, "Default message", null));
 	}
 }

@@ -1,4 +1,4 @@
-package com.qph.dao;
+package com.qph.repository;
 
 import com.qph.model.UserDetails;
 

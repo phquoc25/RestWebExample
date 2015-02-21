@@ -7,14 +7,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.qph.model.UserDetails;
-import com.qph.userdetails.bo.UserDetailsBo;
+import com.qph.service.UserDetailsService;
 
 @Component
 @Path("/userdetails")
 public class UserDetailsServicesImpl implements UserDetailsServices{
 	
 	@Autowired
-	private UserDetailsBo userDetailsBo;
+	private UserDetailsService userDetailsService;
 
 	public Response save(UserDetails userDetails) {
 		// TODO Auto-generated method stub
