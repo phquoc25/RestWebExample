@@ -3,14 +3,14 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 	<title>Spring MVC form handling</title>
-</head>>
+</head>
 <body>
 	<h2>User Information</h2>
-	<form:form method="POST" action="UserDetails/add">
+	<form:form method="POST" action="/MyWebApp/add">
 		<table>
 		 <tr>
-		 	<td><form:label path="name">Name</form:label></td>
-		 	<td><form:input path="name"/></td>
+		 	<td><form:label path="userName">Name</form:label></td>
+		 	<td><form:input path="userName"/></td>
 		 </tr>
 		<tr>
 			<td colspan="2">

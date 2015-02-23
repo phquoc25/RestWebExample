@@ -48,7 +48,24 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>UserdetailsService</servlet-name>
-		<url-pattern>/userdetails</url-pattern>
+		<url-pattern>/userdetailsapi</url-pattern>
 	</servlet-mapping>
 	
+	<!-- Register servlet for userDetails RestFul services -->
+	 <servlet> 
+        <servlet-name>userDetails</servlet-name> 
+        <servlet-class> 
+           org.springframework.web.servlet.DispatcherServlet 
+        </servlet-class>
+        <init-param>
+        	<param-name>contextConfigLocation</param-name>
+        	<param-value>/WEB-INF/userDetails-servlet.xml</param-value>
+        </init-param> 
+        <load-on-startup>1</load-on-startup> 
+    </servlet> 
+ 
+    <servlet-mapping> 
+        <servlet-name>userDetails</servlet-name> 
+        <url-pattern>/</url-pattern> 
+    </servlet-mapping> 
 </web-app>

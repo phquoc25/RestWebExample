@@ -10,7 +10,7 @@ import com.qph.model.UserDetails;
 import com.qph.service.UserDetailsService;
 
 @Component
-@Path("/userdetails")
+//@Path("/userdetails")
 public class UserDetailsServicesImpl implements UserDetailsServices{
 	
 	@Autowired

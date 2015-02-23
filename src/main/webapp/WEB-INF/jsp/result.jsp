@@ -9,7 +9,7 @@
 	<table>
 		<tr>
 			<td>Name</td>
-			<td>${name}</td>
+			<td>${userDetails1.userName}</td>
 		</tr>
 	</table>
 </body>

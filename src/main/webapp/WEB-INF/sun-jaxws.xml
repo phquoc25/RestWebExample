@@ -5,5 +5,5 @@
   <endpoint
       name="Userdetails"
       implementation="com.qph.ws.UserDetailsAPI"
-      url-pattern="/userdetails"/>
+      url-pattern="/userdetailsapi"/>
 </endpoints>

@@ -18,9 +18,9 @@ public class UserDetailsController{
 	}
 	
 	@RequestMapping(value="/add", method=RequestMethod.POST)
-	public String save(@ModelAttribute("SpringWeb") UserDetails userDetails, ModelMap model) {
-		model.addAttribute("name", userDetails.getUserName());
-		return "result";
+	public ModelAndView save(@ModelAttribute("userDetails1") UserDetails userDetails) {
+		ModelAndView modelAndView = new ModelAndView("result");
+		return modelAndView;
 	}
 
 	public void update(UserDetails userDetails) {
