@@ -1,5 +1,7 @@
 package com.qph.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +11,7 @@ import org.springframework.stereotype.Service;
 import com.qph.model.UserDetails;
 import com.qph.repository.UserDetailsDao;
 
-@Service("userDetailsBo")
+@Service("userDetailsService")
 public class UserDetailsServiceImpl implements UserDetailsService, InitializingBean, DisposableBean{
 	
 	@Autowired
@@ -46,8 +48,8 @@ public class UserDetailsServiceImpl implements UserDetailsService, InitializingB
 		userDetailsDao.delete(userDetails);
 	}
 
-	public UserDetails findById(String userName) {
-		return userDetailsDao.findById(userName);
+	public UserDetails findById(String userId) {
+		return userDetailsDao.findById(userId);
 	}
 	
 	public void userDetailsBoInit(){
@@ -62,5 +64,10 @@ public class UserDetailsServiceImpl implements UserDetailsService, InitializingB
 	public void destroy() throws Exception {
 		System.out.println("UserDetailsServiceImpl destroy get called.");
 		System.out.println("UserDetailsServiceImpl " + this.messageSource.getMessage("greeting", null, "Default message", null));
+	}
+
+	public List getAllUsers() {
+		
+		return userDetailsDao.getAllUsers();
 	}
 }

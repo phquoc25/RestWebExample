@@ -2,7 +2,7 @@ package com.qph.repository;
 
 import java.util.List;
 
-import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+import org.hibernate.Query;
 import org.springframework.stereotype.Repository;
 
 import com.qph.model.UserDetails;
@@ -24,8 +24,12 @@ public class UserDetailsHibernateDao extends CustomHibernateDaoSupport implement
 	}
 
 	public UserDetails findById(String userId) {
-		List users = getHibernateTemplate().find("from UserDetails where userId=?", userId);
+		List users = getHibernateTemplate().find("from UserDetails where userId=?", Integer.valueOf(userId));
 		return (UserDetails) users.get(0);
+	}
+
+	public List getAllUsers() {
+	    return getHibernateTemplate().find("from UserDetails");
 	}
 
 }

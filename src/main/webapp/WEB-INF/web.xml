@@ -9,7 +9,7 @@
 	</welcome-file-list>
 	
 	<!-- Register ContextLoaderListener in order to create APPLICATION CONTEXT -->
-	<listener>
+ 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
 	<context-param>
@@ -18,13 +18,13 @@
 	</context-param>
 
 	<!-- Register this servlet for Jersey when developing RestFul WS using Jersey-->
-	<servlet>
+<!-- 	<servlet>
 		<servlet-name>myServlet</servlet-name>
 		<servlet-class>com.sun.jersey.spi.spring.container.servlet.SpringServlet</servlet-class>
-<!-- 		<init-param>
+		<init-param>
 			<param-name>javax.ws.rs.Application</param-name>
 			<param-value>com.qph.resources.MyApplication</param-value>
-		</init-param> -->
+		</init-param>
 		<init-param>
 			<param-name>com.sun.jersey.config.property.packages</param-name>
 			<param-value>com.qph.resources</param-value>
@@ -33,10 +33,10 @@
 	<servlet-mapping>
 		<servlet-name>myServlet</servlet-name>
 		<url-pattern>/rest/*</url-pattern>
-	</servlet-mapping>
+	</servlet-mapping> -->
 	
 	<!-- Register this servlet that reads the sun-jaxws.xml file in order to develop SOAP Web service -->
-	<listener>
+	<!-- <listener>
 		<listener-class>com.sun.xml.ws.transport.http.servlet.WSServletContextListener</listener-class>
 	</listener>
 	<servlet>
@@ -49,7 +49,7 @@
 	<servlet-mapping>
 		<servlet-name>UserdetailsService</servlet-name>
 		<url-pattern>/userdetailsapi</url-pattern>
-	</servlet-mapping>
+	</servlet-mapping> -->
 	
 	<!-- Register servlet for userDetails RestFul services -->
 	 <servlet> 
@@ -57,10 +57,6 @@
         <servlet-class> 
            org.springframework.web.servlet.DispatcherServlet 
         </servlet-class>
-        <init-param>
-        	<param-name>contextConfigLocation</param-name>
-        	<param-value>/WEB-INF/userDetails-servlet.xml</param-value>
-        </init-param> 
         <load-on-startup>1</load-on-startup> 
     </servlet> 
  

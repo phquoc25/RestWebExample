@@ -26,19 +26,22 @@ import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Repository;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.DateSerializer;
+
 @Entity
-@NamedQuery(name = "UserDetails:byId", query = "from UserDetails where userId=?")
-@org.hibernate.annotations.Entity(selectBeforeUpdate = true)
 @Table(name = "USER_DETAILS")
 @Repository("userDetails")
 @Scope(BeanDefinition.SCOPE_PROTOTYPE)
+@JsonAutoDetect
 public class UserDetails implements Serializable{
 	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -8919394224899768583L;
-	@Autowired
 	/*@Transient
 	private MessageSource messageSource;*/
 	
@@ -49,7 +52,12 @@ public class UserDetails implements Serializable{
 	@Temporal(TemporalType.DATE)
 	private Date joinedDate;
 	
+	@Temporal(TemporalType.DATE)
+	private Date createdDate;
+	
 	@Embedded
+	@Autowired
+	@Qualifier(value="userDetailsRelated")
 	private Address address;
 	
 	@OneToMany(cascade = CascadeType.ALL)
@@ -74,6 +82,7 @@ public class UserDetails implements Serializable{
 		this.userName = userName;
 	}
 
+	@JsonSerialize(using=DateSerializer.class)
 	public Date getJoinedDate() {
 		return joinedDate;
 	}
@@ -90,6 +99,7 @@ public class UserDetails implements Serializable{
 		this.description = description;
 	}
 
+	@JsonIgnore
 	public Collection<Vehicle> getVehicles() {
 		return vehicles;
 	}
@@ -106,6 +116,15 @@ public class UserDetails implements Serializable{
 	@Qualifier(value="userDetailsRelated")
 	public void setAddress(Address address) {
 		this.address = address;
+	}
+	
+	@JsonSerialize(using=DateSerializer.class)
+	public Date getCreatedDate() {
+		return createdDate;
+	}
+
+	public void setCreatedDate(Date createdDate) {
+		this.createdDate = createdDate;
 	}
 
 	@Override
