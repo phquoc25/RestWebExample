@@ -13,8 +13,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.qph.dto.UserDetailsDTO;
 import com.qph.model.UserDetails;
 import com.qph.service.UserDetailsService;
+import com.qph.util.ApplicationContextProvider;
 
 @Controller
 @RequestMapping(value="/userdetails")
@@ -37,8 +39,13 @@ public class UserDetailsController{
 	
 	@RequestMapping(method=RequestMethod.POST, produces={"application/json"})
 	@ResponseBody
-	public UserDetails saveJson(@RequestBody UserDetails userDetails){
+	public UserDetailsDTO saveJson(@RequestBody UserDetailsDTO userDetailsDto){
+		UserDetails userDetails =  (UserDetails) ApplicationContextProvider.getApplicationContext().getBean("userDetails");
 		userDetails.setCreatedDate(new Date());
+		userDetails.setUserName(userDetailsDto.getUserName());
+		userDetails.setAddress(userDetailsDto.getAddress());
+		userDetails.setJoinedDate(userDetailsDto.getJoinedDate());
+		
 		userDetailsService.save(userDetails);
 		return userDetails;
 	}
