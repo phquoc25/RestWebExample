@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.qph.dto.UserDetailsDTO;
+import com.qph.dto.UserDetailsDTOList;
 import com.qph.dto.UserDetailsMapping;
 import com.qph.model.UserDetails;
 import com.qph.service.UserDetailsService;
@@ -66,7 +67,7 @@ public class UserDetailsController {
 	@RequestMapping(value = "/list", method = RequestMethod.GET, produces = {
 			MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
 	@ResponseBody
-	public List<UserDetailsDTO> getAllUsers() {
+	public UserDetailsDTOList getAllUsers() {
 		List<UserDetails> allUsers = getUserDetailsService().getAllUsers();
 		List<UserDetailsDTO> returnValues = new ArrayList<UserDetailsDTO>();
 		Iterator<UserDetails> iterator = allUsers.iterator();
@@ -75,7 +76,8 @@ public class UserDetailsController {
 			UserDetailsMapping.userDetails2Dto(userDetails, userDetailsDto);
 			returnValues.add(userDetailsDto);
 		}
-		return returnValues;
+		UserDetailsDTOList userDetailsDTOList = new UserDetailsDTOList(returnValues);
+		return userDetailsDTOList;
 	}
 	
 	/**
