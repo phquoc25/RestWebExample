@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans>
+	<bean id="vehicle" class="com.qph.entity..vehicle.Vehicle"
+		abstract="true">
+	</bean>
+	<bean id="twowheeler" class="com.qph.model.TwoWheeler" scope="prototype">
+		<constructor-arg value="Steering Handle" />
+		<constructor-arg value="20" />
+	</bean>
+	<bean id="fourwheeler" class="com.qph.model.FourWheeler">
+		<property name="SteeringWheel" value="Steering wheel"></property>
+	</bean>
+	<bean id="userdetails" class="com.qph.model.UserDetails" scope="prototype">
+		<property name="address">
+			<bean class="com.qph.entity.Address">
+				<constructor-arg value="Tran Huy Lieu" />
+				<constructor-arg value="Phu Nhuan" />
+				<constructor-arg value="Ho Chi Minh" />
+			</bean>
+		</property>
+	</bean>
+</beans>
