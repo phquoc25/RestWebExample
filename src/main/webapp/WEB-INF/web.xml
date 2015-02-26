@@ -1,7 +1,67 @@
-<!DOCTYPE web-app PUBLIC
- "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
- "http://java.sun.com/dtd/web-app_2_3.dtd" >
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	id="WebApp_ID" version="3.0">
+	<display-name>Archetype Created Web Application</display-name>
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+	
+	<!-- Register ContextLoaderListener in order to create APPLICATION CONTEXT -->
+ 	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath:spring/config/BeanLocations.xml</param-value>
+	</context-param>
 
-<web-app>
-  <display-name>Archetype Created Web Application</display-name>
+	<!-- Register this servlet for Jersey when developing RestFul WS using Jersey-->
+<!-- 	<servlet>
+		<servlet-name>myServlet</servlet-name>
+		<servlet-class>com.sun.jersey.spi.spring.container.servlet.SpringServlet</servlet-class>
+		<init-param>
+			<param-name>javax.ws.rs.Application</param-name>
+			<param-value>com.qph.resources.MyApplication</param-value>
+		</init-param>
+		<init-param>
+			<param-name>com.sun.jersey.config.property.packages</param-name>
+			<param-value>com.qph.resources</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>myServlet</servlet-name>
+		<url-pattern>/rest/*</url-pattern>
+	</servlet-mapping> -->
+	
+	<!-- Register this servlet that reads the sun-jaxws.xml file in order to develop SOAP Web service -->
+	<!-- <listener>
+		<listener-class>com.sun.xml.ws.transport.http.servlet.WSServletContextListener</listener-class>
+	</listener>
+	<servlet>
+		<servlet-name>UserdetailsService</servlet-name>
+		<servlet-class>
+			com.sun.xml.ws.transport.http.servlet.WSServlet
+        </servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UserdetailsService</servlet-name>
+		<url-pattern>/userdetailsapi</url-pattern>
+	</servlet-mapping> -->
+	
+	<!-- Register servlet for userDetails RestFul services -->
+	 <servlet> 
+        <servlet-name>userDetails</servlet-name> 
+        <servlet-class> 
+           org.springframework.web.servlet.DispatcherServlet 
+        </servlet-class>
+        <load-on-startup>1</load-on-startup> 
+    </servlet> 
+ 
+    <servlet-mapping> 
+        <servlet-name>userDetails</servlet-name> 
+        <url-pattern>/</url-pattern> 
+    </servlet-mapping> 
 </web-app>

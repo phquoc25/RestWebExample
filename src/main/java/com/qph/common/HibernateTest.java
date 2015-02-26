@@ -1,4 +1,4 @@
-package com.qph.hibernate;
+package com.qph.common;
 
 import java.util.List;
 
@@ -11,9 +11,9 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.core.io.FileSystemResource;
 
-import com.qph.entity.user.UserDetails;
-import com.qph.entity.vehicle.FourWheeler;
-import com.qph.entity.vehicle.TwoWheeler;
+import com.qph.model.FourWheeler;
+import com.qph.model.TwoWheeler;
+import com.qph.model.UserDetails;
 import com.qph.util.HibernateUtil;
 
 public class HibernateTest {

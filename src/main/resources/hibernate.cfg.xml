@@ -54,10 +54,10 @@
         <property name="hbm2ddl.auto">update</property>
 
         <!-- Names the annotated entity class -->
-        <mapping class="com.qph.entity.user.UserDetails"/>
-        <mapping class="com.qph.entity.vehicle.Vehicle"/>
-        <mapping class="com.qph.entity.vehicle.TwoWheeler"/>
-        <mapping class="com.qph.entity.vehicle.FourWheeler"/>
+        <mapping class="com.qph.model.UserDetails"/>
+        <mapping class="com.qph.model.Vehicle"/>
+        <mapping class="com.qph.model.TwoWheeler"/>
+        <mapping class="com.qph.model.FourWheeler"/>
     </session-factory>
 
 </hibernate-configuration>
