@@ -9,16 +9,16 @@ import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Service;
 
 import com.qph.model.UserDetails;
-import com.qph.repository.UserDetailsDao;
+import com.qph.repository.IRepository;
 
 @Service("userDetailsService")
-public class UserDetailsServiceImpl implements UserDetailsService, InitializingBean, DisposableBean{
+public class UserDetailsServiceImpl implements IService<UserDetails>, InitializingBean, DisposableBean{
 	
 	@Autowired
 	private MessageSource messageSource;
 	
 	@Autowired
-	private UserDetailsDao userDetailsDao;
+	private IRepository<UserDetails> userDetailsDao;
 	
 	public MessageSource getMessageSource() {
 		return messageSource;
@@ -31,12 +31,12 @@ public class UserDetailsServiceImpl implements UserDetailsService, InitializingB
 	public void save(UserDetails userDetails) {
 		userDetailsDao.save(userDetails);
 	}
-
-	public UserDetailsDao getUserDetailsDao() {
+	
+	public IRepository<UserDetails> getUserDetailsDao() {
 		return userDetailsDao;
 	}
 
-	public void setUserDetailsDao(UserDetailsDao userDetailsDao) {
+	public void setUserDetailsDao(IRepository<UserDetails> userDetailsDao) {
 		this.userDetailsDao = userDetailsDao;
 	}
 
@@ -50,6 +50,11 @@ public class UserDetailsServiceImpl implements UserDetailsService, InitializingB
 
 	public UserDetails findById(int userId) {
 		return userDetailsDao.findById(userId);
+	}
+
+	@Override
+	public List<UserDetails> getAll() {
+		return userDetailsDao.getAll();
 	}
 	
 	public void userDetailsBoInit(){
@@ -66,8 +71,4 @@ public class UserDetailsServiceImpl implements UserDetailsService, InitializingB
 		System.out.println("UserDetailsServiceImpl " + this.messageSource.getMessage("greeting", null, "Default message", null));
 	}
 
-	public List getAllUsers() {
-		
-		return userDetailsDao.getAllUsers();
-	}
 }

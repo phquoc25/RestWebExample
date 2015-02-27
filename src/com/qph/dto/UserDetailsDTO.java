@@ -5,13 +5,17 @@ import java.util.List;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
+import org.springframework.beans.factory.InitializingBean;
+import org.springframework.beans.factory.config.BeanDefinition;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import com.qph.model.Address;
 
 @Component("userDetaisDTO")
+@Scope(BeanDefinition.SCOPE_PROTOTYPE)
 @XmlRootElement
-public class UserDetailsDTO {
+public class UserDetailsDTO implements InitializingBean{
 	private int userId;
 	private String userName;
 	private Date joinedDate;
@@ -47,5 +51,10 @@ public class UserDetailsDTO {
 	}
 	public void setVehicleIds(List<Integer> vehicleIds) {
 		this.vehicleIds = vehicleIds;
+	}
+	@Override
+	public void afterPropertiesSet() throws Exception {
+		System.out.println("UserDetailsDTO is initialized.");
+		
 	}
 }

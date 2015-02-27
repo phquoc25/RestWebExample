@@ -11,13 +11,13 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.qph.common.comparators.UserDetailsByNameComparator;
 import com.qph.model.UserDetails;
-import com.qph.service.UserDetailsService;
+import com.qph.service.IService;
 
 public class App {
 	public static void main(String[] args) {
 		AbstractApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring/config/BeanLocations.xml");
 		applicationContext.registerShutdownHook();
-		UserDetailsService userDetailsService = (UserDetailsService) applicationContext.getBean("userDetailsBo");
+		IService userDetailsService = (IService) applicationContext.getBean("userDetailsBo");
 		
 		UserDetails user = (UserDetails) applicationContext.getBean("userDetails");
 		user.setUserName("Quoc");
