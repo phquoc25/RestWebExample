@@ -34,8 +34,6 @@ import com.fasterxml.jackson.databind.ser.std.DateSerializer;
 
 @Entity
 @Table(name = "USER_DETAILS")
-@Component("userDetails")
-@Scope(BeanDefinition.SCOPE_PROTOTYPE)
 @JsonAutoDetect
 public class UserDetails implements Serializable{
 	
@@ -57,8 +55,6 @@ public class UserDetails implements Serializable{
 	private Date createdDate;
 	
 	@Embedded
-	@Autowired
-	@Qualifier(value="userDetailsRelated")
 	private Address address;
 	
 	@OneToMany(cascade = CascadeType.ALL)
@@ -113,8 +109,6 @@ public class UserDetails implements Serializable{
 		return address;
 	}
 	
-	@Autowired
-	@Qualifier(value="userDetailsRelated")
 	public void setAddress(Address address) {
 		this.address = address;
 	}

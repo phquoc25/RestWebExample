@@ -8,8 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Service;
 
+import com.qph.dao.IDao;
 import com.qph.model.UserDetails;
-import com.qph.repository.IRepository;
 
 @Service("userDetailsService")
 public class UserDetailsServiceImpl implements IService<UserDetails>, InitializingBean, DisposableBean{
@@ -18,7 +18,7 @@ public class UserDetailsServiceImpl implements IService<UserDetails>, Initializi
 	private MessageSource messageSource;
 	
 	@Autowired
-	private IRepository<UserDetails> userDetailsDao;
+	private IDao<UserDetails> userDetailsDao;
 	
 	public MessageSource getMessageSource() {
 		return messageSource;
@@ -32,11 +32,11 @@ public class UserDetailsServiceImpl implements IService<UserDetails>, Initializi
 		userDetailsDao.save(userDetails);
 	}
 	
-	public IRepository<UserDetails> getUserDetailsDao() {
+	public IDao<UserDetails> getUserDetailsDao() {
 		return userDetailsDao;
 	}
 
-	public void setUserDetailsDao(IRepository<UserDetails> userDetailsDao) {
+	public void setUserDetailsDao(IDao<UserDetails> userDetailsDao) {
 		this.userDetailsDao = userDetailsDao;
 	}
 

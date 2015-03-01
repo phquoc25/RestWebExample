@@ -12,8 +12,6 @@ import org.springframework.stereotype.Component;
 
 import com.qph.model.Address;
 
-@Component("userDetaisDTO")
-@Scope(BeanDefinition.SCOPE_PROTOTYPE)
 @XmlRootElement
 public class UserDetailsDTO implements InitializingBean{
 	private int userId;

@@ -1,4 +1,4 @@
-package com.qph.repository;
+package com.qph.dao;
 
 import java.util.List;
 
@@ -9,7 +9,7 @@ import com.qph.util.CustomHibernateDaoSupport;
 
 @Repository("userDetailsDao")
 public class UserDetailsHibernateDao extends CustomHibernateDaoSupport
-		implements IRepository<UserDetails> {
+		implements IDao<UserDetails> {
 
 	@Override
 	public void save(UserDetails t) {

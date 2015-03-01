@@ -5,7 +5,6 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -21,7 +20,6 @@ import com.qph.dto.UserDetailsDTOList;
 import com.qph.dto.UserDetailsMapping;
 import com.qph.model.UserDetails;
 import com.qph.service.IService;
-import com.qph.util.ApplicationContextProvider;
 
 @Controller
 @RequestMapping(value = "/userdetails")
@@ -30,14 +28,6 @@ public class UserDetailsController {
 	@Autowired
 	private IService<UserDetails> userDetailsService;
 	
-	@Autowired
-	private UserDetailsDTO userDetailsDto;
-
-	@Autowired
-	private UserDetails userDetails;
-	
-	private ApplicationContext applicationContext = ApplicationContextProvider.getApplicationContext();
-
 	@RequestMapping(value = "/new", method = RequestMethod.GET)
 	public ModelAndView userDetails() {
 		return new ModelAndView("userdetails", "command", new UserDetails());
@@ -60,8 +50,8 @@ public class UserDetailsController {
 			MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
 	@ResponseBody
 	public UserDetailsDTO findById(@PathVariable("userId") int userId) {
-		userDetails = (UserDetails) getUserDetailsService().findById(userId);
-		
+		UserDetails userDetails = (UserDetails) getUserDetailsService().findById(userId);
+		UserDetailsDTO userDetailsDto = new UserDetailsDTO();
 		// Get the DTO object from ApplicationContext and then map the information from userDetails entity
 		UserDetailsMapping.userDetails2Dto(userDetails, userDetailsDto);
 		
@@ -75,9 +65,11 @@ public class UserDetailsController {
 		List<UserDetails> allUsers = getUserDetailsService().getAll();
 		List<UserDetailsDTO> returnValues = new ArrayList<UserDetailsDTO>();
 		Iterator<UserDetails> iterator = allUsers.iterator();
+		UserDetails userDetails = null;
+		UserDetailsDTO userDetailsDto = null;
 		while(iterator.hasNext()){
 			userDetails = iterator.next();
-			UserDetailsDTO userDetailsDto = (UserDetailsDTO) applicationContext.getBean("userDetaisDTO");
+			userDetailsDto = new UserDetailsDTO();
 			UserDetailsMapping.userDetails2Dto(userDetails, userDetailsDto);
 			returnValues.add(userDetailsDto);
 		}
@@ -97,7 +89,7 @@ public class UserDetailsController {
 	public boolean saveJson(@RequestBody UserDetailsDTO userDetailsDto) throws Exception{
 		boolean returnValue = false;
 		try {
-			userDetails = (UserDetails) applicationContext.getBean("userDetails");
+			UserDetails userDetails = new UserDetails();
 			UserDetailsMapping.dto2userDetails(userDetails, userDetailsDto);
 
 			getUserDetailsService().save(userDetails);
@@ -119,7 +111,7 @@ public class UserDetailsController {
 	@ResponseBody
 	public boolean update(@RequestBody UserDetailsDTO userDetailsDto) {
 		int userId = userDetailsDto.getUserId();
-		userDetails = (UserDetails) getUserDetailsService().findById(userId);
+		UserDetails userDetails = (UserDetails) getUserDetailsService().findById(userId);
 		if(userDetails != null){
 			UserDetailsMapping.dto2userDetails(userDetails, userDetailsDto);
 			userDetailsService.update(userDetails);
@@ -134,7 +126,7 @@ public class UserDetailsController {
 			MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
 	@ResponseBody
 	public boolean delete(@PathVariable("userId") int userId) {
-		userDetails = userDetailsService.findById(userId);
+		UserDetails userDetails = userDetailsService.findById(userId);
 		if(userDetails != null){
 			userDetailsService.delete(userDetails);
 		} else {
@@ -145,14 +137,6 @@ public class UserDetailsController {
 
 	public IService<UserDetails> getUserDetailsService() {
 		return userDetailsService;
-	}
-
-	public UserDetailsDTO getUserDetailsDto() {
-		return userDetailsDto;
-	}
-
-	public UserDetails getUserDetails() {
-		return userDetails;
 	}
 
 }
