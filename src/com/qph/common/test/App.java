@@ -1,4 +1,4 @@
-package com.qph.common;
+package com.qph.common.test;
 
 import java.util.Collections;
 import java.util.Enumeration;

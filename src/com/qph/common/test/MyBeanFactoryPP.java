@@ -1,4 +1,4 @@
-package com.qph.common;
+package com.qph.common.test;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
