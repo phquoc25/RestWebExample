@@ -5,6 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -26,6 +27,7 @@ import com.qph.service.IService;
 public class UserDetailsController {
 
 	@Autowired
+	@Qualifier(value="userDetailsService")
 	private IService<UserDetails> userDetailsService;
 	
 	@RequestMapping(value = "/new", method = RequestMethod.GET)
