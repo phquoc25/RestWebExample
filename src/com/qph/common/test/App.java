@@ -1,51 +1,31 @@
 package com.qph.common.test;
 
-import java.util.Collections;
-import java.util.Enumeration;
-import java.util.Iterator;
-import java.util.Vector;
 
-import org.hibernate.usertype.UserVersionType;
-import org.springframework.context.support.AbstractApplicationContext;
+
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.stereotype.Component;
 
-import com.qph.common.comparators.UserDetailsByNameComparator;
+import com.qph.common.InterfaceType;
+import com.qph.dao.IDao;
 import com.qph.model.UserDetails;
-import com.qph.service.IService;
 
+//@Component(value="app")
 public class App {
+	@Autowired
+	IDao userDetailsDao;
+	
 	public static void main(String[] args) {
-		AbstractApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring/config/BeanLocations.xml");
-		applicationContext.registerShutdownHook();
-		IService userDetailsService = (IService) applicationContext.getBean("userDetailsBo");
+		ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring/config/BeanLocations.xml");
+		Logger logger = Logger.getLogger(InterfaceType.REST_USERDETAILS_INTERFACE.getLogicalName());
+		logger.info("Rest Userdetails log");
+		//App app = (App) applicationContext.getBean("app");
+		App app = new App();
+		UserDetails user = app.userDetailsDao.findById(4);
+		logger.info(user.getUserName());
 		
-		UserDetails user = (UserDetails) applicationContext.getBean("userDetails");
-		user.setUserName("Quoc");
-		
-		UserDetails user1 = (UserDetails) applicationContext.getBean("userDetails");
-		user1.setUserName("Chieu");
-		
-		UserDetails user2 = (UserDetails) applicationContext.getBean("userDetails");
-		user2.setUserName("Phong");
-		
-		Vector<UserDetails> usersVector = new Vector<UserDetails>();
-		usersVector.add(user);
-		usersVector.add(user1);
-		usersVector.add(user2);
-		
-		Enumeration<UserDetails> elements = usersVector.elements();
-		while(elements.hasMoreElements()){
-			System.out.println(elements.nextElement());
-		}
-		
-		Collections.sort(usersVector, new UserDetailsByNameComparator());
-		
-		Iterator<UserDetails> iterator = usersVector.iterator();
-		while(iterator.hasNext()){
-			System.out.println(iterator.next());
-		}
-		
-		//userDetailsBo.save(user);
 	}
 	
 }

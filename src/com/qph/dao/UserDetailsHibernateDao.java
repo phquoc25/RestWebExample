@@ -10,7 +10,7 @@ import com.qph.util.CustomHibernateDaoSupport;
 @Repository("userDetailsDao")
 public class UserDetailsHibernateDao extends CustomHibernateDaoSupport
 		implements IDao<UserDetails> {
-
+	
 	@Override
 	public void save(UserDetails t) {
 		getHibernateTemplate().save(t);
