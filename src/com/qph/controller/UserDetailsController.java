@@ -54,7 +54,6 @@ public class UserDetailsController {
 	public UserDetailsDTO findById(@PathVariable("userId") int userId) {
 		UserDetails userDetails = (UserDetails) getUserDetailsService().findById(userId);
 		UserDetailsDTO userDetailsDto = new UserDetailsDTO();
-		// Get the DTO object from ApplicationContext and then map the information from userDetails entity
 		UserDetailsMapping.userDetails2Dto(userDetails, userDetailsDto);
 		
 		return userDetailsDto;
